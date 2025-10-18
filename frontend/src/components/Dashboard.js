@@ -56,7 +56,7 @@ function Dashboard() {
         <p className="welcome-message">Bienvenido al sistema de gestión de pedidos</p>
 
         <div className="dashboard-grid">
-          {/* Gestión de Productos */}
+          {/* Gestión de Productos - Visible para todos */}
           <div className="dashboard-card">
             <div className="card-icon">📦</div>
             <h3>Gestión de Productos</h3>
@@ -70,7 +70,7 @@ function Dashboard() {
             </button>
           </div>
 
-          {/* Gestión de Pedidos */}
+          {/* Gestión de Pedidos - Visible para todos */}
           <div className="dashboard-card">
             <div className="card-icon">📝</div>
             <h3>Gestión de Pedidos</h3>
@@ -84,21 +84,23 @@ function Dashboard() {
             </button>
           </div>
 
-          {/* Reportes e Inventario */}
-          <div className="dashboard-card">
-            <div className="card-icon">📊</div>
-            <h3>Reportes e Inventario</h3>
-            <p>Visualizar estadísticas y estado del inventario</p>
-            <button 
-              className="btn-secondary disabled" 
-              onClick={() => handleButtonClick('Reportes e Inventario')}
-              disabled
-            >
-              Próximamente
-            </button>
-          </div>
+          {/* Reportes e Inventario*/}
+          {usuario.rol === 'administrador' && (
+            <div className="dashboard-card">
+              <div className="card-icon">📊</div>
+              <h3>Reportes e Inventario</h3>
+              <p>Visualizar estadísticas y estado del inventario</p>
+              <button 
+                className="btn-secondary disabled" 
+                onClick={() => handleButtonClick('Reportes e Inventario')}
+                disabled
+              >
+                Próximamente
+              </button>
+            </div>
+          )}
 
-          {/* Gestión de Usuarios - Solo para administradores */}
+          {/* Gestión de Usuarios*/}
           {usuario.rol === 'administrador' && (
             <div className="dashboard-card">
               <div className="card-icon">👥</div>
@@ -114,8 +116,6 @@ function Dashboard() {
             </div>
           )}
         </div>
-
-      
       </div>
     </div>
   );
