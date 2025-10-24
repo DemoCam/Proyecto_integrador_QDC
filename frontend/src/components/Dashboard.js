@@ -24,8 +24,8 @@ function Dashboard() {
     navigate('/login');
   };
 
-  const handleButtonClick = (funcionalidad) => {
-    alert(`La funcionalidad "${funcionalidad}" estará disponible en el próximo sprint`);
+  const handleNavigate = (ruta) => {
+    navigate(ruta);
   };
 
   if (!usuario) {
@@ -62,11 +62,10 @@ function Dashboard() {
             <h3>Gestión de Productos</h3>
             <p>Administrar el catálogo de productos y precios</p>
             <button 
-              className="btn-secondary disabled" 
-              onClick={() => handleButtonClick('Gestión de Productos')}
-              disabled
+              className="btn-primary" 
+              onClick={() => handleNavigate('/productos')}
             >
-              Próximamente
+              Acceder
             </button>
           </div>
 
@@ -77,7 +76,7 @@ function Dashboard() {
             <p>Crear, visualizar y gestionar pedidos</p>
             <button 
               className="btn-secondary disabled" 
-              onClick={() => handleButtonClick('Gestión de Pedidos')}
+              onClick={() => alert('Funcionalidad disponible en próximo sprint')}
               disabled
             >
               Próximamente
@@ -91,11 +90,10 @@ function Dashboard() {
               <h3>Reportes e Inventario</h3>
               <p>Visualizar estadísticas y estado del inventario</p>
               <button 
-                className="btn-secondary disabled" 
-                onClick={() => handleButtonClick('Reportes e Inventario')}
-                disabled
+                className="btn-primary" 
+                onClick={() => handleNavigate('/inventario')}
               >
-                Próximamente
+                Acceder
               </button>
             </div>
           )}
@@ -108,7 +106,7 @@ function Dashboard() {
               <p>Administrar usuarios del sistema</p>
               <button 
                 className="btn-secondary disabled" 
-                onClick={() => handleButtonClick('Gestión de Usuarios')}
+                onClick={() => alert('Funcionalidad disponible en próximo sprint')}
                 disabled
               >
                 Próximamente

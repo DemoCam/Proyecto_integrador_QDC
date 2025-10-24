@@ -5,6 +5,7 @@ const connectDB = require('./config/db');
 
 // Importar rutas
 const authRoutes = require('./routes/auth');
+const productRoutes = require('./routes/products');
 
 // Inicializar Express
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 
 // Rutas
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
 
 // Ruta de prueba
 app.get('/', (req, res) => {

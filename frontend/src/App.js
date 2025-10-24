@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
+import ProductList from './components/ProductList';
+import ProductForm from './components/ProductForm';
+import InventoryView from './components/InventoryView';
 
 // Componente para proteger rutas
 function ProtectedRoute({ children }) {
@@ -33,6 +36,43 @@ function App() {
             element={
               <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
+            } 
+          />
+          
+          {/* Rutas de productos */}
+          <Route 
+            path="/productos" 
+            element={
+              <ProtectedRoute>
+                <ProductList />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/productos/nuevo" 
+            element={
+              <ProtectedRoute>
+                <ProductForm />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/productos/editar/:id" 
+            element={
+              <ProtectedRoute>
+                <ProductForm />
+              </ProtectedRoute>
+            } 
+          />
+          
+          <Route 
+            path="/inventario" 
+            element={
+              <ProtectedRoute>
+                <InventoryView />
               </ProtectedRoute>
             } 
           />
